@@ -6,6 +6,9 @@ import SelectSeats from '../components/SelectSeat'
 import '../Css/home.css'
 
 const Home = () => {
+  const handlebooknow=()=>{
+    
+  }
   return (
     <div className='container'>
       <div className='wrapper'>

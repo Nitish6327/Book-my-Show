@@ -1,16 +1,22 @@
 import React from 'react'
 import '../Css/radiocomponents.css'
 
+const Radiocomponents = ({ text, changeSelection, data }) => {
 
-const Radiocomponents = ({text,changeSelection,data}) => {
-  const handleChecked=(val)=>{
-    changeSelection(val)
+  const handleChecked = (val) => {
+    if (typeof changeSelection === "function") {
+      changeSelection(val)
+    } else {
+      console.error("changeSelection is not a function");
+    }
   }
+
   return (
-    <div>
-        <div  name ={text}className='form-check-label' onClick={()=>{handleChecked(text)}}></div>
-        
-      <span className='text'>{text}</span>
+    <div
+      className={`form-check-label ${data === text ? "active" : ""}`}
+      onClick={() => handleChecked(text)}
+    >
+      {text}
     </div>
   )
 }
